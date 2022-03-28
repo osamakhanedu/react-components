@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 const Button = styled.button`
   width: ${(props) => (props.fullWidth ? "100%" : "")};
-  background-color: salmon;
+  font-family: ${(props) => props.theme.fonts.body};
+  background-color: ${(props) => props.theme.colors.primary};
   padding: 8px 16px;
-  color: snow;
+  color: ${(props) => props.theme.colors.text};
   border: 0;
   border-radius: 0.2rem;
-  font-size: 1rem;
+  font-size: ${(props) => props.theme.fontSizes.m};
   cursor: pointer;
 
   @media (max-width: 550px) {
@@ -16,7 +17,7 @@ const Button = styled.button`
 
   &:hover,
   &:active {
-    background-color: crimson;
+    background-color: ${(props) => props.theme.colors.accent};
   }
 
   &:focus {
@@ -26,7 +27,7 @@ const Button = styled.button`
 `;
 
 export const LargeButton = styled(Button)`
-  font-size: 2rem;
+  font-size: ${(props) => props.theme.fontSizes.l};
 `;
 
 export default Button;
