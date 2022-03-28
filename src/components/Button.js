@@ -1,33 +1,32 @@
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Button = styled.button`
-  width: ${(props) => (props.fullWidth ? "100%" : "")};
-  font-family: ${(props) => props.theme.fonts.body};
-  background-color: ${(props) => props.theme.colors.primary};
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
   padding: 8px 16px;
-  color: ${(props) => props.theme.colors.text};
-  border: 0;
-  border-radius: 0.2rem;
-  font-size: ${(props) => props.theme.fontSizes.m};
-  cursor: pointer;
+  color: white;
+  background-color: rebeccapurple;
+  border: 1px solid;
+  border-color: rebeccapurple;
+  border-radius: 20px;
+  font-size: 1rem;
 
-  @media (max-width: 550px) {
-    width: 100%;
-  }
-
-  &:hover,
-  &:active {
-    background-color: ${(props) => props.theme.colors.accent};
-  }
-
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
   &:focus {
     outline: 0;
-    box-shadow: 0 0 0 2px white, 0 0 0 4px salmon;
+    color: white;
+    border-color: salmon;
+    background-color: salmon;
+    cursor: pointer;
   }
 `;
 
-export const LargeButton = styled(Button)`
-  font-size: ${(props) => props.theme.fontSizes.l};
-`;
+Button.propTypes = {
+  disabled: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+};
 
 export default Button;

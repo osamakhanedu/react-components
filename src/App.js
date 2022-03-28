@@ -1,7 +1,7 @@
 import React from "react";
 import Provider from "./Provider";
 import "./App.css";
-import Button, { LargeButton } from "./components/Button";
+import Button from "./components/Button";
 
 function App() {
   return (
